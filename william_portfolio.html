@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William - Full Stack Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a1128 0%, #001f54 50%, #034078 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Animated background particles */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(100, 200, 255, 0.6);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #64b5f6, #42a5f5, #1e88e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 20px rgba(100, 181, 246, 0.5));
+            }
+            to {
+                filter: drop-shadow(0 0 40px rgba(100, 181, 246, 0.8));
+            }
+        }
+
+        .intro {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            border: 2px solid rgba(100, 181, 246, 0.3);
+            animation: fadeInUp 1s ease-out 0.3s both;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #e3f2fd;
+        }
+
+        .skills-section {
+            margin-top: 60px;
+        }
+
+        .skills-category {
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .skills-category h2 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: #64b5f6;
+            text-align: center;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .skill-bubble {
+            background: linear-gradient(135deg, rgba(30, 136, 229, 0.8), rgba(66, 165, 245, 0.6));
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: 2px solid rgba(100, 181, 246, 0.5);
+            box-shadow: 0 4px 15px rgba(30, 136, 229, 0.4);
+            transition: all 0.3s ease;
+            cursor: default;
+            animation: popIn 0.5s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .skill-bubble:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(30, 136, 229, 0.6);
+            background: linear-gradient(135deg, rgba(30, 136, 229, 1), rgba(66, 165, 245, 0.9));
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            70% {
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Stagger animation for skill bubbles */
+        .skill-bubble:nth-child(1) { animation-delay: 0.1s; }
+        .skill-bubble:nth-child(2) { animation-delay: 0.2s; }
+        .skill-bubble:nth-child(3) { animation-delay: 0.3s; }
+        .skill-bubble:nth-child(4) { animation-delay: 0.4s; }
+        .skill-bubble:nth-child(5) { animation-delay: 0.5s; }
+        .skill-bubble:nth-child(6) { animation-delay: 0.6s; }
+        .skill-bubble:nth-child(7) { animation-delay: 0.7s; }
+        .skill-bubble:nth-child(8) { animation-delay: 0.8s; }
+
+        .experience-section {
+            margin-top: 80px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #64b5f6;
+            text-align: center;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .experience-card {
+            background: linear-gradient(135deg, rgba(30, 136, 229, 0.2), rgba(66, 165, 245, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 20px;
+            border: 2px solid rgba(100, 181, 246, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(30, 136, 229, 0.5);
+            border-color: rgba(100, 181, 246, 0.6);
+        }
+
+        .experience-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .experience-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #64b5f6;
+        }
+
+        .experience-role {
+            font-size: 1.1em;
+            color: #90caf9;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .experience-date {
+            font-size: 0.9em;
+            color: #bbdefb;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .experience-description {
+            line-height: 1.6;
+            color: #e3f2fd;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .intro p {
+                font-size: 1em;
+            }
+            
+            .skill-bubble {
+                font-size: 0.9em;
+                padding: 12px 24px;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation" id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <h1>William</h1>
+        </header>
+
+        <div class="intro">
+            <p>Hey there, I'm William - or just Will for short! I am a front and back end developer that works with several servers for websites. I use comprehensive software engineering to create the best products and resources I can for clients. I do mainly work with ROBLOX groups and real life companies and ROBLOX companies to create skilled pages and backend infrastructure.</p>
+        </div>
+
+        <div class="skills-section">
+            <div class="skills-category">
+                <h2>Backend</h2>
+                <div class="skills-grid">
+                    <div class="skill-bubble">JavaScript</div>
+                    <div class="skill-bubble">Node.js</div>
+                    <div class="skill-bubble">Express.js</div>
+                    <div class="skill-bubble">MongoDB</div>
+                    <div class="skill-bubble">NeonDB</div>
+                    <div class="skill-bubble">Docker</div>
+                    <div class="skill-bubble">CSS</div>
+                    <div class="skill-bubble">C++</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h2>Frontend</h2>
+                <div class="skills-grid">
+                    <div class="skill-bubble">HTML</div>
+                    <div class="skill-bubble">Tailwind CSS</div>
+                    <div class="skill-bubble">React</div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h2>Safety and Security Features</h2>
+                <div class="skills-grid">
+                    <div class="skill-bubble">Network Safety</div>
+                    <div class="skill-bubble">SecureLines.co</div>
+                    <div class="skill-bubble">Vulnerable Page Prevention</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="experience-section">
+            <h2 class="section-title">Experience</h2>
+			
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-icon">💼 FH Development</div>
+                    <h3>CEO of FH Development</h3>
+                    <p class="experience-role">Chief Executive Officer</p>
+                    <p class="experience-date">Jan 2025 - Present</p>
+                    <p class="experience-description">I work at FH Development, a small but growing ROBLOX Development agency not
+					only serving ROBLOX assets but discord assets and websites!<br>
+					<a style="color: white;" href="https://discord.gg/3A8kakMmtt">Click Here</a></p>
+                </div>
+				
+                <div class="experience-card">
+                    <div class="experience-icon">🚀 Admin Core Studios</div>
+                    <h3>CO at Admin Core Studios</h3>
+                    <p class="experience-role">Head of IT</p>
+                    <p class="experience-date">Dec 2024 - Present</p>
+                    <p class="experience-description">I was head of IT at Admin Core and now a co founder there. 
+					I have worked there for over a year now! I manage the website and all of the IT.<br>
+					<a style="color: white;" href="https://discord.gg/S4b4KnVeDv">Click Here</a></p>
+                </div>
+				
+				<div class="experience-card">
+                    <div class="experience-icon">💻 Arlo Systems</div>
+                    <h3>Developer at Arlo</h3>
+                    <p class="experience-role">Developer</p>
+                    <p class="experience-date">Oct 2025 - Present</p>
+                    <p class="experience-description">I am the servers data manager and website manager here at Arlo Systems 
+					where I strive to improve the quality of performance.<br>
+					<a style="color: white;" href="https://discord.gg/zHt27CzYDe">Click Here</a></p>
+                </div>
+				
+				<div class="experience-card">
+                    <div class="experience-icon">🖨️ Bayo Systems</div>
+                    <h3>Data Manager at Bayo</h3>
+                    <p class="experience-role">Data Manager and Assistant Owner</p>
+                    <p class="experience-date">Jun 2025 - Present</p>
+                    <p class="experience-description">I work at Bayo, a comprehensive discord bot for all purposes - like Arlo. I manage 
+					all of the Data and systems here!<br>
+					<a style="color: white;" href="https://discord.gg/sjURpSg56P">Click Here</a></p>
+                </div>
+				
+				<div class="experience-card">
+                    <div class="experience-icon">+ More!</div>
+                    <h3>Contact for more.</h3>
+                    <p class="experience-role">Data Manager and Assistant Owner</p>
+                </div>
+				
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create animated particles
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    </script>
+</body>
+</html>
