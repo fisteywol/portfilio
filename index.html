@@ -284,6 +284,65 @@
             color: #e3f2fd;
         }
 
+        .contact-section {
+            margin-top: 80px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(30, 136, 229, 0.3), rgba(66, 165, 245, 0.2));
+            backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            border-radius: 20px;
+            border: 2px solid rgba(100, 181, 246, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: all 0.4s ease;
+            animation: popIn 0.6s ease-out;
+            min-width: 250px;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(30, 136, 229, 0.6);
+            border-color: rgba(100, 181, 246, 0.7);
+        }
+
+        .contact-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .contact-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #64b5f6;
+        }
+
+        .contact-info {
+            font-size: 1.1em;
+            color: #e3f2fd;
+            word-break: break-word;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5em;
@@ -303,6 +362,7 @@
             }
         }
     </style>
+
 </head>
 <body>
     <div class="bg-animation" id="particles"></div>
@@ -348,14 +408,24 @@
                     <div class="skill-bubble">Vulnerable Page Prevention</div>
                 </div>
             </div>
+			
+			<div class="skills-category">
+                <h2>Non Website Code</h2>
+                <div class="skills-grid">
+                    <div class="skill-bubble">Python</div>
+                    <div class="skill-bubble">TKinter</div>
+					<div class="skill-bubble">Lua</div>
+                </div>
+            </div>
+			
         </div>
 
         <div class="experience-section">
             <h2 class="section-title">Experience</h2>
-			
             <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-icon">💼 FH Development</div>
+                
+				<div class="experience-card">
+                    <div class="experience-icon">💼 </div>
                     <h3>CEO of FH Development</h3>
                     <p class="experience-role">Chief Executive Officer</p>
                     <p class="experience-date">Jan 2025 - Present</p>
@@ -365,7 +435,7 @@
                 </div>
 				
                 <div class="experience-card">
-                    <div class="experience-icon">🚀 Admin Core Studios</div>
+                    <div class="experience-icon">🚀 </div>
                     <h3>CO at Admin Core Studios</h3>
                     <p class="experience-role">Head of IT</p>
                     <p class="experience-date">Dec 2024 - Present</p>
@@ -375,17 +445,17 @@
                 </div>
 				
 				<div class="experience-card">
-                    <div class="experience-icon">💻 Arlo Systems</div>
-                    <h3>Developer at Arlo</h3>
-                    <p class="experience-role">Developer</p>
+                    <div class="experience-icon">💻 </div>
+                    <h3>Senior Developer at Arlo</h3>
+                    <p class="experience-role">Senior Developer</p>
                     <p class="experience-date">Oct 2025 - Present</p>
-                    <p class="experience-description">I am the servers data manager and website manager here at Arlo Systems 
+                    <p class="experience-description">I am the servers data manager and website manager here at Arlo  
 					where I strive to improve the quality of performance.<br>
 					<a style="color: white;" href="https://discord.gg/zHt27CzYDe">Click Here</a></p>
                 </div>
 				
 				<div class="experience-card">
-                    <div class="experience-icon">🖨️ Bayo Systems</div>
+                    <div class="experience-icon">🖨️ </div>
                     <h3>Data Manager at Bayo</h3>
                     <p class="experience-role">Data Manager and Assistant Owner</p>
                     <p class="experience-date">Jun 2025 - Present</p>
@@ -394,12 +464,126 @@
 					<a style="color: white;" href="https://discord.gg/sjURpSg56P">Click Here</a></p>
                 </div>
 				
-				<div class="experience-card">
-                    <div class="experience-icon">+ More!</div>
-                    <h3>Contact for more.</h3>
-                    <p class="experience-role">Data Manager and Assistant Owner</p>
+            </div>
+        </div>
+
+        <div class="experience-section">
+            <h2 class="section-title">Development Work</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-icon">⚙️</div>
+                    <h3>FH Development</h3>
+                    <p class="experience-role">Assets and Management</p>
+                    <p class="experience-date">Jan 2025 - Present</p>
+                    <p class="experience-description">I set up a 
+					parcel hub with Vault ROBLOX and manage all of our staff and members. 
+					I also built custom bots for our server to help us strive.</p>
                 </div>
+                <div class="experience-card">
+                    <div class="experience-icon">💻</div>
+                    <h3>Evergreen Primary</h3>
+                    <p class="experience-role">Website, Discord Design and Management</p>
+                    <p class="experience-date">Aug 2025 - Oct 2025</p>
+                    <p class="experience-description">Built a comprehensive dynamic website 
+					and created the discord server with lots of channels and a appropriate look.</p>
+					</div>
+            </div>
+        </div>
+
+        <div class="experience-section">
+            <h2 class="section-title">Ro-School Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-icon">🎓</div>
+                    <h3>Evergreen Primary</h3>
+                    <p class="experience-role">Deputy Headteacher</p>
+                    <p class="experience-date">200+ members - Resigned</p>
+                    <p class="experience-description">Whole School Manager</p>
+				</div>
 				
+				<div class="experience-card">
+                    <div class="experience-icon">🎓</div>
+                    <h3>Rosewood Primary</h3>
+                    <p class="experience-role">Deputy Headteacher</p>
+                    <p class="experience-date">100+ members - Went Inactive</p>
+                    <p class="experience-description">SEND Co</p>
+				</div>
+				
+				<div class="experience-card">
+                    <div class="experience-icon">🎓</div>
+                    <h3>Bridgelake Primary</h3>
+                    <p class="experience-role">Deputy Headteacher</p>
+                    <p class="experience-date">100+ members - Shutdown</p>
+                    <p class="experience-description">Non Assigned</p>
+				</div>
+				
+				<div class="experience-card">
+                    <div class="experience-icon">🎓</div>
+                    <h3>Hampton Secondary</h3>
+                    <p class="experience-role">Head of Year</p>
+                    <p class="experience-date">100+ members - Resigned</p>
+                    <p class="experience-description">HoY 10</p>
+				</div>
+				
+				<div class="experience-card">
+                    <div class="experience-icon">🎓</div>
+                    <h3>Havenfield Secondary</h3>
+                    <p class="experience-role">Head of Department</p>
+                    <p class="experience-date">50+ members - Active</p>
+                    <p class="experience-description">HoD for Computing</p>
+				</div>
+				
+				<div class="experience-card">
+                    <div class="experience-icon">🎓</div>
+                    <h3>Bridgelake Academy</h3>
+                    <p class="experience-role">Teaching Staff</p>
+                    <p class="experience-date">25+ members - Resigned</p>
+                    <p class="experience-description">Non Assigned</p>
+				</div>
+				
+				<div class="experience-card">
+                    <div class="experience-icon">🎓</div>
+                    <h3>Brighton Secondary School</h3>
+                    <p class="experience-role">HoY < Assistant Headteacher</p>
+                    <p class="experience-date">300+ members - Falsly Blacklisted</p>
+                    <p class="experience-description">HoY 7 < Teaching Standards Manager</p>
+				</div>
+				
+            </div>
+        </div>
+
+        <div class="experience-section">
+            <h2 class="section-title">FH Development</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-icon">🏢</div>
+                    <h3>FH Development</h3>
+                    <p class="experience-role">Chief Executiv Officer</p>
+                    <p class="experience-date">Rsp. 2025</p>
+                    <p class="experience-description">I own FH Development, a multi-purporse 
+					asset store for roblox and discord.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-container">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p class="contact-info">fisteywol@gmail.com</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>Discord</h3>
+                    <p class="contact-info">444fisteywol</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🐙</div>
+                    <h3>GitHub</h3>
+                    <p class="contact-info">github.com/fisteywol</p>
+                </div>
             </div>
         </div>
     </div>
